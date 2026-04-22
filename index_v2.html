@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animalcules Linktree</title>
+    <style>
+
+        /* CSS PART OF THE CODE */
+
+        @font-face {
+            font-family: 'PixelifySans';
+            src: url('Pixelify_Sans/static/PixelifySans-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'PixelifySans', sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #54dee5, #9b81db, #c75fb4d0);
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .solid-banner {
+            width: 100%;
+            background-color: #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px 10px 30px 10px;
+            box-sizing: border-box;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .logo-img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* ---- SOCIAL LINKS ---- */
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .links a img {
+            width: 40px;
+            height: 40px;
+            transition: 0.3s;
+        }
+
+        .links a img:hover {
+            opacity: 0.7;
+        }
+
+        /* ---- PIXEL ANIMALS SECTION ---- */
+        .pixel-animals {
+            position: relative;
+            width: 100%;
+            height: 70px;
+            margin-top: 30px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .pixel-animals img {
+            width: 40px;
+            height: auto;
+            image-rendering: pixelated;
+            transition: transform 0.2s ease;
+        }
+
+        /* Animals jump up on hover */
+        .pixel-animals img:hover {
+            transform: translateY(-10px);
+        }
+
+        /* ---- GIG DATES SECTION ---- */
+        .gigs-section {
+            width: 100%;
+
+            /*subtle divider line below, optional, not needed */
+            /* border-top: 2px solid #9b81db; */
+            margin-top: 30px;
+            padding: 24px 16px 0 16px;
+            box-sizing: border-box;
+        }
+
+        .gigs-title {
+            font-size: 22px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #54dee5;
+            margin: 0 0 18px 0;
+        }
+
+        .gig-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .gig-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-left: 3px solid #9b81db;
+            padding: 10px 14px;
+            transition: border-left-color 0.2s, background-color 0.2s;
+        }
+
+        .gig-item:hover {
+            border-left-color: #54dee5;
+            background-color: #333;
+        }
+
+        .gig-left {
+            text-align: left;
+        }
+
+        .gig-date {
+            font-size: 13px;
+            color: #54dee5;
+            letter-spacing: 1px;
+        }
+
+        .gig-venue {
+            font-size: 15px;
+            color: #ffffff;
+            margin-top: 2px;
+        }
+
+        .gig-location {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 2px;
+        }
+
+        .gig-ticket-btn {
+            font-family: 'PixelifySans', sans-serif;
+            font-size: 12px;
+            background: transparent;
+            color: #c75fb4;
+            border: 1px solid #c75fb4;
+            padding: 5px 10px;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: background-color 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+
+        .gig-ticket-btn:hover {
+            background-color: #c75fb4;
+            color: #fff;
+        }
+
+        .gigs-more {
+            margin-top: 16px;
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        /* ---- MUSIC HIGHLIGHTS SECTION ---- */
+        /* Two cards side by side — latest single on the left, debut album on the right */
+        .music-highlights {
+            width: 100%;
+            margin-top: 30px;
+            padding: 0 16px;
+            box-sizing: border-box;
+        }
+
+        .music-highlights-title {
+            font-size: 22px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #54dee5;
+            margin: 0 0 16px 0;
+        }
+
+        /* The row that holds both cards side by side */
+        .music-highlights-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        /* Each individual card */
+        .music-card {
+            flex: 1;
+            min-width: 0; /* prevents cards from overflowing the row */
+            background-color: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-top: 3px solid #9b81db;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 10px 14px 10px;
+            transition: border-top-color 0.2s, background-color 0.2s;
+        }
+
+        .music-card:hover {
+            border-top-color: #54dee5;
+            background-color: #333;
+        }
+
+        /* Artwork wrapper forces a perfect square regardless of image dimensions */
+        .artwork-wrapper {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .artwork-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .music-card-label {
+            font-size: 11px;
+            color: #54dee5;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .music-card-title {
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        /* Streaming links row inside each card */
+        .music-card-links {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .music-card-links a img {
+            width: 28px;
+            height: 28px;
+            transition: opacity 0.2s;
+        }
+
+        .music-card-links a img:hover {
+            opacity: 0.7;
+        }
+
+        /* ---- MUSIC VIDEO SECTION ---- */
+        .video-section {
+            width: 100%;
+            margin-top: 30px;
+            padding: 0 16px;
+            box-sizing: border-box;
+        }
+
+        .video-title {
+            font-size: 22px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #54dee5;
+            margin: 0 0 16px 0;
+        }
+
+        /* Wrapper that keeps the video at a 16:9 aspect ratio responsively */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 ratio — do not change this */
+            height: 0;
+            overflow: hidden;
+            border: 1px solid #3a3a3a;
+            border-top: 3px solid #9b81db;
+        }
+
+        /* The iframe fills the wrapper completely */
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-caption {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="solid-banner">
+
+            <!-- Band Picture -->
+            <img src="animalcules-goat.png" alt="Band Picture" class="profile-img">
+
+            <!-- Band Logo -->
+            <img src="animalcules-logo.png" alt="Band Logo" class="logo-img">
+
+            <!-- ADJUST TEXT HERE FOR ANY ANNOUNCEMENTS -->
+            <p>Debut Album "Luz" Out Now!</p>
+
+            <!-- Social Links -->
+            <div class="links">
+                <a href="https://open.spotify.com/artist/4TuxaINutEbeEm4ENA954s" target="_blank">
+                    <img src="spotify-icon-px.png" alt="Spotify">
+                </a>
+                <a href="https://music.apple.com/gb/artist/animalcules/1673558546" target="_blank">
+                    <img src="applemusic-icon-px.png" alt="Apple Music">
+                </a>
+                <a href="https://www.youtube.com/@animalculesband" target="_blank">
+                    <img src="youtube-icon-px.png" alt="YouTube">
+                </a>
+                <a href="https://www.instagram.com/animalculesband/" target="_blank">
+                    <img src="instagram-icon-px.png" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/AnimalculesBand/" target="_blank">
+                    <img src="facebook-icon-px.png" alt="Facebook">
+                </a>
+            </div>
+
+            <!-- Pixelated Animals -->
+            <div class="pixel-animals">
+                <img src="deer-pixel.png" alt="Pixel Deer">
+                <img src="mouse-pixel.png" alt="Pixel Mouse">
+                <img src="racoon-pixel.png" alt="Pixel Racoon">
+                <img src="fox-pixel.png" alt="Pixel Fox">
+                <img src="bat-pixel.png" alt="Pixel Bat">
+                <img src="bear-pixel.png" alt="Pixel Bear">
+            </div>
+
+            <!------ GIG DATES, CODE TO BE UPDATED FREQUENTLY ------>
+            <!------ Please adjust the classes below for individual dates, venues and locations. Thank you! ------>
+            <div class="gigs-section">
+                <p class="gigs-title">UPCOMING SHOWS</p>
+                <ul class="gig-list">
+
+                    <li class="gig-item">
+                        <div class="gig-left">
+                            <!-- adjust the DATE for the gig below please -->
+                            <div class="gig-date">SAT 23 MAY 2026</div>
+                            <!-- adjust the NAME OF VENUE for the gig below please -->
+                            <div class="gig-venue">1990</div>
+                            <!-- adjust the LOCATION for the gig below please -->
+                            <div class="gig-location">Glasgow, UK</div>
+                        </div>
+
+                        <!-- DONT forget to change the LINKS FOR TICKETS in the href below! -->
+                        <a href="https://buytkts.co.uk/events/coplung26?imt=1&utm_campaign=Copper+Lungs+%7C+Glasgow+-+Artist&utm_source=&utm_medium=&utm_content=#/checkout" class="gig-ticket-btn" target="_blank">TICKETS</a>
+                    </li>
+
+                    <!-- to add more dates, remove the comments on the code below -->
+                    <!--<li class="gig-item">
+                        <div class="gig-left">
+                            <div class="gig-date">DATE</div>
+                            <div class="gig-venue">NAME OF VENUE</div>
+                            <div class="gig-location">LOCATION</div>
+                        </div>
+                        <a href="INSERT TICKET LINK HERE PLEASE" class="gig-ticket-btn" target="_blank">TICKETS</a>
+                    </li>
+
+                    <li class="gig-item">
+                        <div class="gig-left">
+                            <div class="gig-date">DATE</div>
+                            <div class="gig-venue">NAME OF VENUE</div>
+                            <div class="gig-location">LOCATION</div>
+                        </div>
+                        <a href="INSERT TICKET LINK HERE PLEASE" class="gig-ticket-btn" target="_blank">TICKETS</a>
+                    </li> -->
+
+                </ul>
+                <p class="gigs-more">More dates TBA — follow us on social media for updates!</p>
+            </div>
+
+            <!------ MUSIC HIGHLIGHTS — UPDATE when new single/album is released      ------>
+            <!------ Left card = latest single. Right card = debut/whatever album.              ------>
+            <!------ To swap artwork: change the src="change this here" in the <img> inside each card  ------>
+            <div class="music-highlights">
+                <p class="music-highlights-title">MORE MUSIC!</p>
+                <div class="music-highlights-row">
+
+                    <!-- LEFT CARD: Latest Single -->
+                    <div class="music-card">
+                        <!-- ARTWORK: change src="volntron.png" to update the single artwork image -->
+                        <div class="artwork-wrapper">
+                            <img src="voltron.png" alt="Single Artwork">
+                        </div>
+                        <!-- UPDATE the title below when releasing a new single -->
+                        <div class="music-card-label">Latest Single</div>
+                        <div class="music-card-title">VOLTRON, MEGAZOID, SPACE FERRETS or something/Plain Rice (Playing Nice)</div>
+                        <!-- Streaming links — UPDATE hrefs with direct track links -->
+                        <div class="music-card-links">
+                            <a href="https://open.spotify.com/track/0l2AX72vsZetbC7lQ0Ae7h?si=c1acd7a871544fc7" target="_blank">
+                                <img src="spotify-icon-px.png" alt="Spotify">
+                            </a>
+                            <a href="https://music.apple.com/sk/album/voltron-megazoid-space-ferrets-or-something-plain-rice/1816263817" target="_blank">
+                                <img src="applemusic-icon-px.png" alt="Apple Music">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT CARD: Debut Album -->
+                    <div class="music-card">
+                        <!-- ARTWORK: change src="change this name here" to update the album artwork image -->
+                        <div class="artwork-wrapper">
+                            <img src="sleepingmouse-transformed.jpeg" alt="Album Artwork">
+                        </div>
+                        <!-- UPDATE the title below if releasing a new album -->
+                        <div class="music-card-label">Debut Album</div>
+                        <div class="music-card-title">Luz</div>
+                        <!-- Streaming links — dont forget to update hrefs with direct album links -->
+                        <div class="music-card-links">
+                            <a href="https://open.spotify.com/album/4KDAo7A5cEgeq8FRgbAZRy?si=uSeT_Yn4Qz6Pth32uebvQQ" target="_blank">
+                                <img src="spotify-icon-px.png" alt="Spotify">
+                            </a>
+                            <a href="https://music.apple.com/sk/album/luz/1786685085" target="_blank">
+                                <img src="applemusic-icon-px.png" alt="Apple Music">
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!------ MUSIC VIDEO SECTION — UPDATE src in the iframe to change the video ------>
+            <!------ To change video: replace the video ID in the embed URL below       ------>
+            <!------ e.g. youtube.com/embed/VIDEOID — just swap out the VIDEOID part    ------>
+            <div class="video-section">
+                <p class="video-title">MUSIC VIDEOS</p>
+                <div class="video-wrapper">
+                    <!-- The video ID from your YouTube link is: go5ISRzlNv0 -->
+                    <!-- To change video, replace go5ISRzlNv0 with the new video's ID below pls-->
+                    <iframe
+                        src="https://www.youtube.com/embed/go5ISRzlNv0?si=kS6Emu_nnJuVgCIn"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <!-- ADJUST the caption below to match the video title -->
+                <p class="video-caption">Watch on <a href="https://www.youtube.com/@animalculesband" target="_blank" style="color:#9b81db;">YouTube</a></p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+        </div>
+    </div>
+</body>
+</html>
